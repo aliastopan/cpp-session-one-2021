@@ -5,33 +5,40 @@ using namespace std;
 
 int main()
 {
+    char _a='z';
     int n=9;
     int tengah= n/2;
     int batasKiri=n/2;
     int batasKanan=n/2;
     
-    
-    for(int i=0; i<n; i++){
-        cout<< "L:" << batasKiri << " ";
+
+    cout<< " Y ---------->" << endl;
+    for(int x=0; x<n; x++){
+         cout<< "X:" << x << " ";
         
-        for(int j=0; j<n; j++)
+        for(int y=0; y<n; y++)
         {
-            if(j==batasKiri) // jika J itu bernilai = batas kiri -> cetak ■
+            bool target1 = y==6 && x==1;
+            bool target2 = y==2 && x==7;
+            bool allTarget = target1 || target2;
+
+            if(y==x)
             {
-                cout<<"■"<<" ";
+                cout<<_a<<" ";
             }
-            else if(j==batasKanan) // jika bernilai = batas kanan JUGA -> cetak ■
+            else if(allTarget)
             {
-                cout<<"■"<<" ";
-            }
-            else // jika kedua kondisi tidak terpenuhi lakukan yg dibawah
-            {
-                cout<< "_" <<" ";
+                cout<<"x"<<" ";
+                //cout<< "_" <<" ";
 
             }
-            
+            else 
+            {
+                cout<< "_" <<" ";
+            }
+
         }
-        if(batasKiri<n-1 && i>=n/2){
+        if(batasKiri<n-1 && x>=n/2){
             batasKiri++;
             batasKanan--;
         }else{
@@ -39,8 +46,9 @@ int main()
             batasKanan++;
         }
 
-        cout<< "R:" << batasKanan-1 << " ";
+        //  cout<< "J:" << y << " ";
         cout<<endl;
+        _a--;
     }
 }
 
